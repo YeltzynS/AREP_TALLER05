@@ -1,11 +1,12 @@
-# Usa la imagen oficial de MySQL
-FROM mysql:8
+# Usar una imagen base de Java 17
+FROM openjdk:17-jdk-alpine
 
-# Configurar variables de entorno
-ENV MYSQL_ROOT_PASSWORD=root123
-ENV MYSQL_DATABASE=properties_db
-ENV MYSQL_USER=broot
-ENV MYSQL_PASSWORD=root123
+# Establecer el directorio de trabajo dentro del contenedor
+WORKDIR /app
 
-# Exponer el puerto 3306
-EXPOSE 3306
+
+# Exponer el puerto en el que corre la aplicación
+EXPOSE 35000
+
+# Comando para ejecutar la aplicación
+ENTRYPOINT ["java", "-jar", "app.jar"]
