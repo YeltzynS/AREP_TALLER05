@@ -148,7 +148,7 @@ La arquitectura del sistema sigue un modelo en tres capas:
 
 4. Ver que se creo la tabla:
 
-   ![image](https://github.com/user-attachments/assets/9e7493a9-b3e7-48b8-9fa6-580e7550382a)
+   ![image](https://github.com/user-attachments/assets/9e7493a9-b3e7-48b8-9fa6-580e7550382)
 
 
 
@@ -212,17 +212,17 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 ## SCREENSHOOTS: 📷
 #### Final work:
 - GET
-![image](https://github.com/user-attachments/assets/7c4ab991-37a9-4bd1-96be-996ffcf2fd6f)
+![image](https://github.com/user-attachments/assets/7c4ab991-37a9-4bd1-96be-996ffcf2fd6)
 
 - POST
-![image](https://github.com/user-attachments/assets/5f1f8f02-0e36-4c42-9469-a1ec36131f5f)
+![image](https://github.com/user-attachments/assets/5f1f8f02-0e36-4c42-9469-a1ec36131f5)
 
 - PUT
-![image](https://github.com/user-attachments/assets/24a1e030-74e9-4cdb-b034-f49c5319b43b)
+![image](https://github.com/user-attachments/assets/24a1e030-74e9-4cdb-b034-f49c5319b43)
 
 - DELETE
-![image](https://github.com/user-attachments/assets/c0b16c17-1f12-478e-99f6-ad9b04b0b8dd)
-![image](https://github.com/user-attachments/assets/b56beeba-3225-48c9-ae58-e5cc7c208b2d)
+![image](https://github.com/user-attachments/assets/c0b16c17-1f12-478e-99f6-ad9b04b0b8d)
+![image](https://github.com/user-attachments/assets/b56beeba-3225-48c9-ae58-e5cc7c208b2)
 
 
 
@@ -234,11 +234,11 @@ To run the automated tests:
 ```
 mvn test
 ```
-![image](https://github.com/user-attachments/assets/0ca2ad17-b12e-42a4-968c-c3a6d9ea939d)
+![image](https://github.com/user-attachments/assets/0ca2ad17-b12e-42a4-968c-c3a6d9ea939)
 
 These tests verify the server's correct response to different requests.
 
-![image](https://github.com/user-attachments/assets/403a3d45-de56-4888-b873-7eb68cee1515)
+![image](https://github.com/user-attachments/assets/403a3d45-de56-4888-b873-7eb68cee151)
 
 
 ## Built With
@@ -249,7 +249,7 @@ These tests verify the server's correct response to different requests.
 
 ## Authors
 
-- Ana Maria Duran - *AREP* *Taller 5* - [AnaDuranB](https://github.com/AnaDuranB)
+-- Yeltzyn Sierra
 
 
 
