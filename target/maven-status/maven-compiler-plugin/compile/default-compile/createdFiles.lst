@@ -1,0 +1,5 @@
+com\eci\arep\arep_taller05\controller\PropertyController.class
+com\eci\arep\arep_taller05\service\PropertyService.class
+com\eci\arep\arep_taller05\ApplicationProperty.class
+com\eci\arep\arep_taller05\model\Property.class
+com\eci\arep\arep_taller05\repository\PropertyRepository.class
