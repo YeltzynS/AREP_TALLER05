@@ -6,49 +6,75 @@
    **backend** construido con **Spring Boot** y MySQL para la persistencia de datos.
   **base de datos** alojada en AWS EC2 utilizando MySQL.
 
-  
-  # Property Management System
 
-# Project 
+# Proyecto 
 El Property Management System es una aplicación web que permite gestionar propiedades mediante operaciones CRUD (Crear, Leer, Actualizar, Eliminar). Los usuarios pueden registrar propiedades con detalles como dirección, precio, tamaño, descripción y teléfono.
 
-## Objective:
-Create new property listings.
-Read or view a list of all properties and individual property details.
-Update existing property details.
-Delete property listings.
-Requirements:
-Frontend (HTML + JavaScript):
+## Objetivo:
+Crear nuevos listados de propiedades.
+Leer o ver una lista de todas las propiedades y detalles de propiedades individuales.
+Actualizar detalles de propiedades existentes.
+Eliminar listados de propiedades.
+Requisitos:
+Interfaz de usuario (HTML + JavaScript):
 
-Create a simple user interface with forms to capture property information (e.g., address, price, size, description).
-Display a list of all properties with options to view, update, and delete each one.
-Implement client-side validation (e.g., required fields, valid data types).
-Use AJAX or Fetch API to communicate with the backend REST services.
-Backend (Spring Boot REST API):
+Crear una interfaz de usuario simple con formularios para capturar información de propiedades (por ejemplo, dirección, precio, tamaño, descripción).
+Mostrar una lista de todas las propiedades con opciones para ver, actualizar y eliminar cada una.
+Implementar la validación del lado del cliente (por ejemplo, campos obligatorios, tipos de datos válidos).
+Usar AJAX o Fetch API para comunicarse con los servicios REST del backend.
+Backend (API REST de Spring Boot):
 
-Develop RESTful endpoints for each CRUD operation:
-POST to create a new property.
-GET to retrieve all properties or a single property by ID.
-PUT to update an existing property.
-DELETE to remove a property by ID.
-Handle errors such as invalid inputs or requests for non-existent properties.
-Ensure that each property has the following attributes:
-Property ID (generated automatically)
-Address
-Price
-Size
-Description
-Database (MySQL):
+Desarrollar puntos finales RESTful para cada operación CRUD:
+POST para crear una nueva propiedad.
+GET para recuperar todas las propiedades o una sola propiedad por ID.
+PUT para actualizar una propiedad existente.
+DELETE para eliminar una propiedad por ID.
+Manejar errores como entradas no válidas o solicitudes de propiedades inexistentes.
+Asegúrese de que cada propiedad tenga los siguientes atributos:
+ID de la propiedad (generada automáticamente)
+Dirección
+Precio
+Tamaño
+Descripción
+Base de datos (MySQL):
 
-Create a properties table with columns for ID, address, price, size, and description.
-Use JPA/Hibernate to map the property objects to the database.
-Implement data persistence for all CRUD operations.
-4. The backend services and the database should be deployed in separate servers in AWS.
+Cree una tabla de propiedades con columnas para ID, dirección, precio, tamaño y descripción.
+Use JPA/Hibernate para asignar los objetos de propiedad a la base de datos.
+Implemente la persistencia de datos para todas las operaciones CRUD.
+4. Los servicios de backend y la base de datos deben implementarse en servidores separados en AWS.
+
 
 
  
 
-## System Architecture
+## Arquitectura
+```Bash
+AREP-TALLER05/
+│── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   ├── com/edu/eci/arep/arep_taller05/Contoller
+│   │   │   │   ├── PropertyController.java
+│   │   │   ├── com/edu/eci/arep/arep_taller05/Model
+│   │   │   │   ├── Property.java
+│   │   │   ├── com/edu/eci/arep/arep_taller05/Repository
+│   │   │   │   ├── PropertyRepository.java
+│   │   │   ├── com/edu/eci/arep/arep_taller05/Service
+│   │   │   │   ├── PropertyService.java
+│   │   │   ├── ApplicationProperty.java
+│   ├── resources/
+│   │   ├── img
+│   │   ├── static
+│   │   │   │── style.css
+│   │   │   │── script.js
+│   │   │   ├── index.html
+│   │   ├── application.properties
+│── pom.xml
+│── README.md
+│── Dockerfile
+│── docker-compose.yml
+```
+
 La arquitectura del sistema sigue un modelo en tres capas:
 
 - **Frontend:** Aplicación web estática (HTML, CSS, JavaScript) alojada en el servidor y comunicándose con el backend mediante llamadas REST.
@@ -80,7 +106,150 @@ La arquitectura del sistema sigue un modelo en tres capas:
 ### **4. Capa de Controlador**
 - `PropertyController`: Expone los endpoints REST para interactuar con las propiedades.
 
-### **Diagrama de Clases (Simplificado)**
+## **Instalación** 
+
+1. Descarga el repositorio remoto a tu local
+    
+    ```
+    git clone https://github.com/YeltzynS/AREP_TALLER05.git
+    
+    ```
+    
+2. Entra en el directorio.
+    
+    ```
+    cd AREP_TALLER05
+    ```
+    
+3. Compila el proyecto:
+    
+    `mvn clean install`
+   
+
+
+### **Conexión mysql**
+
+1. Crear la instancia con mysql.
+2. Conectarse por SSH:
+    
+    ``` bash
+    ssh -i "myfirstkey.pem" ec2-user@<instance-ip>
+    ```
+    
+3. Instala docker y corre mysql:
+    
+    ``` bash
+    sudo yum update -y
+    sudo yum install docker -y
+    sudo usermod -a -G docker ec2-user
+    docker run --name contenedor_mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=properties_db -p 3306:3306 -d mysql:latest
+    ```
+  
+
+4. Ver que se creo la tabla:
+
+   ![image](https://github.com/user-attachments/assets/9e7493a9-b3e7-48b8-9fa6-580e7550382a)
+
+
+
+### **Backend**
+
+1. Crear el dockerfile
+Usar una imagen base de Java 17
+FROM openjdk:17-jdk-alpine
+WORKDIR /app
+EXPOSE 35000
+Comando para ejecutar la aplicación
+ENTRYPOINT ["java", "-jar", "app.jar"]
+
+2. Par los paquetes de la aplicación
+   
+    ``` bash
+    mvn clean package
+    ```
+
+3. Construimos la imagen:
+
+    ``` bash
+    docker build -t app .
+    ```
+4. Agregamos el tag de docker y cargamos el repositorio de dockerhub
+   
+    ``` bash
+    docker tag app yeltzyns/app
+    ```
+
+    ``` bash
+    docker push <your-dockerhub-username>/property-app
+    ```
+    
+#### AWS:
+1.Lanzamos la instancia para el backend.
+2. Nos conectamos por SSh:
+    
+    ``` bash
+    ssh -i "myfrist.key.pem" ec2-user@<instance-ip>
+    ```
+    
+3. Intslamos docker y traemos la imagen del repositorio:
+    
+    ``` bash
+    sudo yum update -y
+    sudo yum install docker -y
+    sudo service docker start
+    docker pull yeltzyns/app
+    ```
+    
+  4. Corremos el backen:
+    
+    ``` bash
+    docker run -d -p 35000:35000 --name app yeltzyns/app
+    ```
+
+
+
+      
+## SCREENSHOOTS: 📷
+#### Final work:
+- GET
+![image](https://github.com/user-attachments/assets/7c4ab991-37a9-4bd1-96be-996ffcf2fd6f)
+
+- POST
+![image](https://github.com/user-attachments/assets/5f1f8f02-0e36-4c42-9469-a1ec36131f5f)
+
+- PUT
+![image](https://github.com/user-attachments/assets/24a1e030-74e9-4cdb-b034-f49c5319b43b)
+
+- DELETE
+![image](https://github.com/user-attachments/assets/c0b16c17-1f12-478e-99f6-ad9b04b0b8dd)
+![image](https://github.com/user-attachments/assets/b56beeba-3225-48c9-ae58-e5cc7c208b2d)
+
+
+
+---
+## Running the tests 
+
+To run the automated tests:
+
+```
+mvn test
+```
+![image](https://github.com/user-attachments/assets/0ca2ad17-b12e-42a4-968c-c3a6d9ea939d)
+
+These tests verify the server's correct response to different requests.
+
+![image](https://github.com/user-attachments/assets/403a3d45-de56-4888-b873-7eb68cee1515)
+
+
+## Built With
+
+- [Java SE](https://www.oracle.com/java/) - Programming language
+- [Maven](https://maven.apache.org/) - Dependency management and build tool
+
+
+## Authors
+
+- Ana Maria Duran - *AREP* *Taller 5* - [AnaDuranB](https://github.com/AnaDuranB)
 
 
 
