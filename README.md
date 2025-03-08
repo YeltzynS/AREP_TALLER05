@@ -126,6 +126,20 @@ La arquitectura del sistema sigue un modelo en tres capas:
     `mvn clean install`
    
 
+## SCREENSHOOTS: 📷
+#### Final work:
+- GET
+![5.png](src/main/resources/static/5.png)
+
+- POST
+![6.png](src/main/resources/static/6.png)
+
+- PUT
+![7.png](src/main/resources/static/7.png)
+
+- DELETE
+![8.png](src/main/resources/static/8.png)
+
 
 ### **Conexión mysql**
 
@@ -148,8 +162,8 @@ La arquitectura del sistema sigue un modelo en tres capas:
 
 4. Ver que se creo la tabla:
 
-   ![image](https://github.com/user-attachments/assets/9e7493a9-b3e7-48b8-9fa6-580e7550382)
-
+   ![3.png](src/main/resources/static/3.png)
+   ![4.png](src/main/resources/static/4.png)
 
 
 ### **Backend**
@@ -205,56 +219,42 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
     ``` bash
     docker run -d -p 35000:35000 --name app yeltzyns/app
     ```
+## **Aplicación Funcionando graficamente**
 
-
-
+![9.png](src/main/resources/static/9.png)
+![10.png](src/main/resources/static/10.png)
+![11.png](src/main/resources/static/11.png)
+![12.png](src/main/resources/static/12.png)
       
-## SCREENSHOOTS: 📷
-#### Final work:
-- GET
-![image](https://github.com/user-attachments/assets/7c4ab991-37a9-4bd1-96be-996ffcf2fd6)
-
-- POST
-![image](https://github.com/user-attachments/assets/5f1f8f02-0e36-4c42-9469-a1ec36131f5)
-
-- PUT
-![image](https://github.com/user-attachments/assets/24a1e030-74e9-4cdb-b034-f49c5319b43)
-
-- DELETE
-![image](https://github.com/user-attachments/assets/c0b16c17-1f12-478e-99f6-ad9b04b0b8d)
-![image](https://github.com/user-attachments/assets/b56beeba-3225-48c9-ae58-e5cc7c208b2)
 
 
+## **Video Funcionando**
+[![Video Demo](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://youtu.be/dwiVE1yXyfg)
 
 ---
-## Running the tests 
+## Corriendo los test 
 
-To run the automated tests:
+Utiliza este comando para correr los test:
 
 ```
 mvn test
 ```
-![image](https://github.com/user-attachments/assets/0ca2ad17-b12e-42a4-968c-c3a6d9ea939)
-
-These tests verify the server's correct response to different requests.
-
-![image](https://github.com/user-attachments/assets/403a3d45-de56-4888-b873-7eb68cee151)
-
-
-## Built With
-
-- [Java SE](https://www.oracle.com/java/) - Programming language
-- [Maven](https://maven.apache.org/) - Dependency management and build tool
-
-
-## Authors
-
--- Yeltzyn Sierra
+![13.png](src/main/resources/static/13.png)
 
 
 
 
+### Construido Con
+Java: El lenguaje de programación utilizado.
 
+Maven: Herramienta de gestión de dependencias y construcción.
 
+JUnit: Framework de pruebas.
 
+Docker: Herramienta de contenedorización.
 
+### Author
+- Yeltzyn Sierra
+  
+### License
+This project is licensed under the MIT license: see the LICENSE.md file for details.
